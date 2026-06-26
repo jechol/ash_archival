@@ -22,13 +22,18 @@ defmodule AshArchival.MixProject do
       description: @description,
       aliases: aliases(),
       package: package(),
-      preferred_cli_env: [
-        "test.create": :test,
-        "test.migrate": :test
-      ],
       deps: deps(),
       docs: &docs/0,
       consolidate_protocols: Mix.env() != :test
+    ]
+  end
+
+  def cli do
+    [
+      preferred_envs: [
+        "test.create": :test,
+        "test.migrate": :test
+      ]
     ]
   end
 
